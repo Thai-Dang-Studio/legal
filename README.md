@@ -6,11 +6,13 @@ Legal documents for apps published by Thai Dang Studio, served as a static site 
 
 - Index: https://thai-dang-studio.github.io/legal/
 - Conversion Kit privacy policy: https://thai-dang-studio.github.io/legal/conversion-kit/privacy.html
+- Draw Kit privacy policy: https://thai-dang-studio.github.io/legal/draw-kit/privacy.html
 
 ## Structure
 
 - `index.html` — landing page listing every document.
 - `conversion-kit/privacy.html` — privacy policy for Conversion Kit, English and Vietnamese on one page.
+- `draw-kit/privacy.html` — privacy policy for Draw Kit, English and Vietnamese on one page.
 - `.nojekyll` — serve files as-is, skip the Jekyll build step.
 
 ## Publishing
