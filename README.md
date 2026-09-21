@@ -69,7 +69,7 @@ pass. Paths are in the `td-lifeline` repository.
 
 | Claim on the page | What makes it true |
 |---|---|
-| One permission only: the camera | `app/ios/Runner/Info.plist` has only `NSCameraUsageDescription`; `AndroidManifest.xml` has only `CAMERA`. `app/tool/check_permissions.dart` blocks the photo-library, microphone and storage permissions |
+| At most two permissions asked, each at first use: notifications and the camera | Notifications are asked only when the first reminder switch is turned on (AC-73; the plugin is initialised with every `request…Permission` flag off). `app/ios/Runner/Info.plist` has only `NSCameraUsageDescription`. `AndroidManifest.xml` declares `CAMERA` and `RECEIVE_BOOT_COMPLETED` — the second is install-time, with no prompt, and exists so reminders survive a restart (AC-181, D-75); `POST_NOTIFICATIONS` is merged in by the notification plugin and prompts on Android 13+. `app/tool/check_permissions.dart` blocks the photo-library, microphone, storage and exact-alarm permissions |
 | The Android release has no internet permission | `AndroidManifest.xml` removes `android.permission.INTERNET` |
 | No analytics, crash-reporting or tracking SDK | `app/tool/check_deps.dart`, run on every commit |
 | The app never calls the network; the life table ships inside | `app/assets/data/life_tables.json`; `app/tool/audit_network.dart` |
