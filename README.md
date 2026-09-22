@@ -6,7 +6,7 @@ Legal documents for apps published by Thai Dang Studio, served as a static site 
 
 - Index: https://thai-dang-studio.github.io/legal/
 - Conversion Kit privacy policy: https://thai-dang-studio.github.io/legal/conversion-kit/privacy.html
-- Draw Kit privacy policy: https://thai-dang-studio.github.io/legal/draw-kit/privacy.html
+- Coloriso (formerly Draw Kit) privacy policy: https://thai-dang-studio.github.io/legal/draw-kit/privacy.html
 - Nestbook privacy policy: https://thai-dang-studio.github.io/legal/nestbook/privacy.html
 - Nestbook support: https://thai-dang-studio.github.io/legal/nestbook/support.html
 - Lifeline privacy policy: https://thai-dang-studio.github.io/legal/lifeline/privacy.html
@@ -16,7 +16,7 @@ Legal documents for apps published by Thai Dang Studio, served as a static site 
 
 - `index.html` — landing page listing every document.
 - `conversion-kit/privacy.html` — privacy policy for Conversion Kit, English and Vietnamese on one page.
-- `draw-kit/privacy.html` — privacy policy for Draw Kit, English and Vietnamese on one page.
+- `draw-kit/privacy.html` — privacy policy for Coloriso, English and Vietnamese on one page. The app was renamed from Draw Kit on 17 August 2026; the path keeps the old name because it is registered in both store consoles.
 - `nestbook/privacy.html` — privacy policy for Nestbook, English and Vietnamese on one page.
 - `nestbook/support.html` — support page for Nestbook. App Store Connect requires a support URL as well as a privacy policy URL, so Nestbook is the first app here with two documents.
 - `lifeline/privacy.html` — privacy policy for Lifeline ("Dòng Đời"), English and Vietnamese on one page.
