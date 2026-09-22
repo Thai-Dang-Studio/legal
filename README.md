@@ -72,11 +72,12 @@ pass. Paths are in the `td-lifeline` repository.
 | At most two permissions asked, each at first use: notifications and the camera | Notifications are asked only when the first reminder switch is turned on (AC-73; the plugin is initialised with every `request…Permission` flag off). `app/ios/Runner/Info.plist` has only `NSCameraUsageDescription`. `AndroidManifest.xml` declares `CAMERA` and `RECEIVE_BOOT_COMPLETED` — the second is install-time, with no prompt, and exists so reminders survive a restart (AC-181, D-75); `POST_NOTIFICATIONS` is merged in by the notification plugin and prompts on Android 13+. `app/tool/check_permissions.dart` blocks the photo-library, microphone, storage and exact-alarm permissions |
 | The Android release has no internet permission | `AndroidManifest.xml` removes `android.permission.INTERNET` |
 | No analytics, crash-reporting or tracking SDK | `app/tool/check_deps.dart`, run on every commit |
-| The app never calls the network; the life table ships inside | `app/assets/data/life_tables.json`; `app/tool/audit_network.dart` |
+| The app never calls the network; the life table ships inside | `app/assets/data/life_tables.json`; `app/tool/audit_network.dart`. The one automatic question is the store age signal (AC-183): Play Age Signals is IPC to the Play Store app and the Android release still has no internet permission; iOS uses the system `DeclaredAgeRange` framework |
 | Settings names the data source and year | `life_tables.json` meta — `is_placeholder: false` (on 21 Sep 2026: WHO/UN, 2023) |
 | OS cloud backup is off by default | Android `LifelineBackupAgent` + `dataExtractionRules`; iOS `NSURLIsExcludedFromBackupKey` |
 | Export and import go through the system share sheet / picker | every "save outside the app" path uses the share sheet |
 | A share card with another person needs consent | the two-step consent gate of the card flow |
 | Under 13: the app stops and stores nothing | the age check at the first onboarding step |
+| Where the store gives an age signal: under 13, or under 18 awaiting a parent's approval, shows only a notice + support lines + export; nothing is deleted; the answer is not stored | `app/lib/onboarding/age_gate.dart` (`decideAgeGate`), `app/lib/app_shell/age_block_route.dart`, `AgeSignalBridge.kt` / `AgeSignalBridge.swift` — AC-183, D-76…D-78 in `td-lifeline` |
 | Crisis lines always available, no conditions | `app/assets/data/crisis_links.json`, in Settings and on the memorial screen |
 
